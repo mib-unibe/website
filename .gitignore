@@ -11,3 +11,7 @@
 
 # Ignore Composer-managed dependencies.
 vendor/
+
+
+# Non share-able idea files
+.idea/workspace.xml
