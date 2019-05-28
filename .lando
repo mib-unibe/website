@@ -1,0 +1,8 @@
+name: mib-website
+recipe: drupal8
+config:
+  webroot: docroot
+  xdebug: false
+  drush: ^9
+  conf:
+    php: php.ini

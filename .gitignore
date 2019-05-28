@@ -11,4 +11,3 @@
 
 # Ignore Composer-managed dependencies.
 vendor/
-k
