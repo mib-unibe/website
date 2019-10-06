@@ -1,0 +1,49 @@
+uuid: 63bf39a9-ef46-4d24-a903-edaa14ee4042
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.kontaktperson.field_e_mail
+    - field.field.taxonomy_term.kontaktperson.field_jobtitle
+    - field.field.taxonomy_term.kontaktperson.field_phone_number
+    - taxonomy.vocabulary.kontaktperson
+id: taxonomy_term.kontaktperson.default
+targetEntityType: taxonomy_term
+bundle: kontaktperson
+mode: default
+content:
+  field_e_mail:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_jobtitle:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_phone_number:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

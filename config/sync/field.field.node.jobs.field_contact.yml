@@ -1,0 +1,29 @@
+uuid: 6a77f5a0-e7a1-4c8f-86d0-b3a0fa2c56ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.jobs
+    - taxonomy.vocabulary.kontaktperson
+id: node.jobs.field_contact
+field_name: field_contact
+entity_type: node
+bundle: jobs
+label: Kontaktperson
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      kontaktperson: kontaktperson
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

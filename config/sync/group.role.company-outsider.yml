@@ -1,0 +1,14 @@
+uuid: d9d4eada-8809-4baa-a290-4f35401b04a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.company
+id: company-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: company
+permissions_ui: true
+permissions: {  }

@@ -1,0 +1,8 @@
+uuid: ec230d14-6a18-4917-b6b0-add7b428f309
+langcode: en
+status: true
+dependencies: {  }
+id: fachschaft
+label: Fachschaft
+description: 'About us'
+locked: false

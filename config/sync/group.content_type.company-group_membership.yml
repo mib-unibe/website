@@ -1,0 +1,17 @@
+uuid: 6953803d-69bb-4089-af62-69fd83a1a4e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.company
+  module:
+    - user
+id: company-group_membership
+label: 'Unternehmen: Group membership'
+description: 'Adds users to groups as members.'
+group_type: company
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

@@ -1,0 +1,33 @@
+uuid: fdb50b45-b365-46c8-a0fb-4837c1ab958d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration
+    - node.type.event
+    - webform.webform.anmeldung1
+  module:
+    - webform
+id: node.event.field_registration
+field_name: field_registration
+entity_type: node
+bundle: event
+label: Anmeldung
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    webform_access_group: {  }
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+    target_uuid: 867102aa-5f03-4da9-a452-0b862f0f818b
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

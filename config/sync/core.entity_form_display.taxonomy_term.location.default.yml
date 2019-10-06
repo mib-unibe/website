@@ -1,0 +1,41 @@
+uuid: aa1ccca9-c389-4fb2-8867-24da1ec4ac68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.location.field_address
+    - field.field.taxonomy_term.location.field_url
+    - taxonomy.vocabulary.location
+  module:
+    - address
+    - link
+id: taxonomy_term.location.default
+targetEntityType: taxonomy_term
+bundle: location
+mode: default
+content:
+  field_address:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_url:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

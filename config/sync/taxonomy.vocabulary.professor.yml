@@ -1,0 +1,8 @@
+uuid: e8ae6c55-6238-49c6-a085-862e57e62d74
+langcode: en
+status: true
+dependencies: {  }
+name: Dozent
+vid: professor
+description: ''
+weight: 0

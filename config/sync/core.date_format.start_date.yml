@@ -1,0 +1,8 @@
+uuid: 3284ecce-b793-43ab-9e52-7c16c91da69a
+langcode: en
+status: true
+dependencies: {  }
+id: start_date
+label: 'MIB: Date'
+locked: false
+pattern: 'j. F Y, H:i'

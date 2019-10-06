@@ -1,66 +1,147 @@
-This is a Composer-based installer for the [Lightning](https://www.drupal.org/project/lightning) Drupal distribution. Welcome to the future!
+To work on the **FSMIB theme**, check out its own [Readme](web/themes/custom/fsmib/README.md).
 
-## Get Started
+# Composer template for Drupal projects
+
+[![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
+
+This project template provides a starter kit for managing your site
+dependencies with [Composer](https://getcomposer.org/).
+
+If you want to know how to use it as replacement for
+[Drush Make](https://github.com/drush-ops/drush/blob/8.x/docs/make.md) visit
+the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
+
+## Usage
+
+First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+
+> Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
+You might need to replace `composer` with `php composer.phar` (or similar) 
+for your setup.
+
+After that you can create the project:
 
 ```
-$ composer create-project acquia/lightning-project MY_PROJECT
-$ cd MY_PROJECT && composer quick-start
+composer create-project drupal-composer/drupal-project:8.x-dev some-dir --no-interaction
 ```
 
-This will create a functioning Lightning site, open a web browser, and log you
-into the site using Drupal's built-in Quick Start command. If you'd rather use
-your own database and web server, you can skip the second step above and install
-Lightning like you would any other Drupal site.
-
-Normally, Composer will install all dependencies into a `vendor` directory that
-is *next* to `docroot`, not inside it. This may create problems in certain
-hosting environments, so if you need to, you can tell Composer to install
-dependencies into `docroot/vendor` instead:
+With `composer require ...` you can download new dependencies to your 
+installation.
 
 ```
-$ composer create-project acquia/lightning-project MY_PROJECT --no-install
-$ composer config vendor-dir docroot/vendor
-$ cd MY_PROJECT
-$ composer install
+cd some-dir
+composer require drupal/devel:~1.0
 ```
 
-Either way, remember to keep the `composer.json` and `composer.lock` files that exist above `docroot` -- they are controlling your dependencies.
+The `composer create-project` command passes ownership of all files to the 
+project that is created. You should create a new git repository, and commit 
+all files not excluded by the .gitignore file.
 
-## Maintenance
-`drush make`, `drush pm-download`, `drush pm-update` and their ilk are the old-school way of maintaining your code base. Forget them. You're in Composer land now!
+## What does the template do?
 
-Let this handy table be your guide:
+When installing the given `composer.json` some tasks are taken care of:
 
-| Task                                            | Drush                                         | Composer                                          |
-|-------------------------------------------------|-----------------------------------------------|---------------------------------------------------|
-| Installing a contrib project (latest version)   | ```drush pm-download PROJECT```               | ```composer require drupal/PROJECT```             |
-| Installing a contrib project (specific version) | ```drush pm-download PROJECT-8.x-1.0-beta3``` | ```composer require drupal/PROJECT:1.0.0-beta3``` |
-| Installing a javascript library (e.g. dropzone) | ```drush pm-download dropzone```              | ```composer require bower-asset/dropzone```       |
-| Updating all contrib projects and Drupal core   | ```drush pm-update```                         | ```composer update```                             |
-| Updating a single contrib project               | ```drush pm-update PROJECT```                 | ```composer update drupal/PROJECT```              |
-| Updating Drupal core                            | ```drush pm-update drupal```                  | ```composer update drupal/core```                 |
+* Drupal will be installed in the `web`-directory.
+* Autoloader is implemented to use the generated composer autoloader in `vendor/autoload.php`,
+  instead of the one provided by Drupal (`web/vendor/autoload.php`).
+* Modules (packages of type `drupal-module`) will be placed in `web/modules/contrib/`
+* Theme (packages of type `drupal-theme`) will be placed in `web/themes/contrib/`
+* Profiles (packages of type `drupal-profile`) will be placed in `web/profiles/contrib/`
+* Creates default writable versions of `settings.php` and `services.yml`.
+* Creates `web/sites/default/files`-directory.
+* Latest version of drush is installed locally for use at `vendor/bin/drush`.
+* Latest version of DrupalConsole is installed locally for use at `vendor/bin/drupal`.
+* Creates environment variables based on your .env file. See [.env.example](.env.example).
 
-The magic is that Composer, unlike Drush, is a *dependency manager*. If module ```foo version: 1.0.0``` depends on ```baz version: 3.2.0```, Composer will not let you update baz to ```3.3.0``` (or downgrade it to ```3.1.0```, for that matter). Drush has no concept of dependency management. If you've ever accidentally hosed a site because of dependency issues like this, you've probably already realized how valuable Composer can be.
+## Updating Drupal Core
 
-But to be clear: it is still very helpful to use a site management tool like Drush or Drupal Console. Tasks such as database updates (```drush updatedb```) are still firmly in the province of such utilities. This installer will install a copy of Drush (local to the project) in the ```bin``` directory.
+This project will attempt to keep all of your Drupal Core files up-to-date; the 
+project [drupal-composer/drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold) 
+is used to ensure that your scaffold files are updated every time drupal/core is 
+updated. If you customize any of the "scaffolding" files (commonly .htaccess), 
+you may need to merge conflicts if any of your modified files are updated in a 
+new release of Drupal core.
 
-### Specifying a version
-you can specify a version from the command line with:
+Follow the steps below to update your core files.
 
-    $ composer require drupal/<modulename>:<version> 
+1. Run `composer update drupal/core webflo/drupal-core-require-dev "symfony/*" --with-dependencies` to update Drupal Core and its dependencies.
+1. Run `git diff` to determine if any of the scaffolding files have changed. 
+   Review the files for any changes and restore any customizations to 
+  `.htaccess` or `robots.txt`.
+1. Commit everything all together in a single commit, so `web` will remain in
+   sync with the `core` when checking out branches or running `git bisect`.
+1. In the event that there are non-trivial conflicts in step 2, you may wish 
+   to perform these steps on a branch, and use `git merge` to combine the 
+   updated core files with your customized files. This facilitates the use 
+   of a [three-way merge tool such as kdiff3](http://www.gitshah.com/2010/12/how-to-setup-kdiff-as-diff-tool-for-git.html). This setup is not necessary if your changes are simple; 
+   keeping all of your modifications at the beginning or end of the file is a 
+   good strategy to keep merges easy.
 
-For example:
+## Generate composer.json from existing project
 
-    $ composer require drupal/ctools:3.0.0-alpha26
-    $ composer require drupal/token:1.x-dev 
+With using [the "Composer Generate" drush extension](https://www.drupal.org/project/composer_generate)
+you can now generate a basic `composer.json` file from an existing project. Note
+that the generated `composer.json` might differ from this project's file.
 
-In these examples, the composer version 3.0.0-alpha26 maps to the drupal.org version 8.x-3.0-alpha26 and 1.x-dev maps to 8.x-1.x branch on drupal.org.
 
-If you specify a branch, such as 1.x you must add -dev to the end of the version.
+## FAQ
 
-**Composer is only responsible for maintaining the code base**.
+### Should I commit the contrib modules I download?
 
-## Source Control
-If you peek at the ```.gitignore``` we provide, you'll see that certain directories, including all directories containing contributed projects, are excluded from source control. This might be a bit disconcerting if you're newly arrived from Planet Drush, but in a Composer-based project like this one, **you SHOULD NOT commit your installed dependencies to source control**.
+Composer recommends **no**. They provide [argumentation against but also 
+workrounds if a project decides to do it anyway](https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md).
 
-When you set up the project, Composer will create a file called ```composer.lock```, which is a list of which dependencies were installed, and in which versions. **Commit ```composer.lock``` to source control!** Then, when your colleagues want to spin up their own copies of the project, all they'll have to do is run ```composer install```, which will install the correct versions of everything in ```composer.lock```.
+### Should I commit the scaffolding files?
+
+The [drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold) plugin can download the scaffold files (like
+index.php, update.php, …) to the web/ directory of your project. If you have not customized those files you could choose
+to not check them into your version control system (e.g. git). If that is the case for your project it might be
+convenient to automatically run the drupal-scaffold plugin after every install or update of your project. You can
+achieve that by registering `@composer drupal:scaffold` as post-install and post-update command in your composer.json:
+
+```json
+"scripts": {
+    "post-install-cmd": [
+        "@composer drupal:scaffold",
+        "..."
+    ],
+    "post-update-cmd": [
+        "@composer drupal:scaffold",
+        "..."
+    ]
+},
+```
+### How can I apply patches to downloaded modules?
+
+If you need to apply patches (depending on the project being modified, a pull 
+request is often a better solution), you can do so with the 
+[composer-patches](https://github.com/cweagans/composer-patches) plugin.
+
+To add a patch to drupal module foobar insert the patches section in the extra 
+section of composer.json:
+```json
+"extra": {
+    "patches": {
+        "drupal/foobar": {
+            "Patch description": "URL or local path to patch"
+        }
+    }
+}
+```
+### How do I switch from packagist.drupal-composer.org to packages.drupal.org?
+
+Follow the instructions in the [documentation on drupal.org](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg).
+
+### How do I specify a PHP version ?
+
+This project supports PHP 5.6 as minimum version (see [Drupal 8 PHP requirements](https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements)), however it's possible that a `composer update` will upgrade some package that will then require PHP 7+.
+
+To prevent this you can add this code to specify the PHP version you want to use in the `config` section of `composer.json`:
+```json
+"config": {
+    "sort-packages": true,
+    "platform": {
+        "php": "5.6.40"
+    }
+},
+```

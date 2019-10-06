@@ -1,0 +1,29 @@
+uuid: a03ef0d3-5dfd-4d5f-b603-f5ac6a4732d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.event
+  module:
+    - entity_reference_revisions
+id: node.event.field_description
+field_name: field_description
+entity_type: node
+bundle: event
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles: null
+    target_bundles_drag_drop:
+      text:
+        weight: 2
+        enabled: false
+field_type: entity_reference_revisions

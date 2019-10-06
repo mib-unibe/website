@@ -1,0 +1,20 @@
+uuid: dc5b1bb9-2173-44d9-b8e5-6334c7ee3fc8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_semester
+field_name: field_semester
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

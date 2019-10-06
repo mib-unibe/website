@@ -1,0 +1,8 @@
+uuid: ce68157e-4f75-448c-b713-7843d78896bc
+langcode: en
+status: true
+dependencies: {  }
+id: mib_date_without_time
+label: 'MIB: Date without Time'
+locked: false
+pattern: 'j. F Y'

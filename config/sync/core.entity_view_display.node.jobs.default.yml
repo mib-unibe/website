@@ -1,0 +1,75 @@
+uuid: 1e8c7af0-e53a-44de-a0f4-0c20b31325b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.jobs.field_contact
+    - field.field.node.jobs.field_duration
+    - field.field.node.jobs.field_job_description
+    - field.field.node.jobs.field_job_type
+    - field.field.node.jobs.field_workload_maximum
+    - field.field.node.jobs.field_workload_minimum
+    - node.type.jobs
+  module:
+    - text
+    - user
+id: node.jobs.default
+targetEntityType: node
+bundle: jobs
+mode: default
+content:
+  field_contact:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_duration:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_job_description:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_job_type:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_workload_maximum:
+    weight: 104
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_workload_minimum:
+    weight: 103
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

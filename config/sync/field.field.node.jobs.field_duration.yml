@@ -1,0 +1,21 @@
+uuid: 2a38f191-5efd-4df1-9b59-72a94507bdef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration
+    - node.type.jobs
+id: node.jobs.field_duration
+field_name: field_duration
+entity_type: node
+bundle: jobs
+label: Dauer
+description: 'Mögliche Optionen: "Festanstellung", "1 Jahr", "Verlängerung möglich", ...'
+required: false
+translatable: false
+default_value:
+  -
+    value: Festanstellung
+default_value_callback: ''
+settings: {  }
+field_type: string

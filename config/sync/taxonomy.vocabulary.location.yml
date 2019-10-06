@@ -1,0 +1,8 @@
+uuid: fcfae6e9-bcdc-49f9-b26c-9c0cf6b9a80c
+langcode: en
+status: true
+dependencies: {  }
+name: Location
+vid: location
+description: ''
+weight: 0

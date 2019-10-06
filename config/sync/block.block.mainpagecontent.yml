@@ -1,0 +1,20 @@
+uuid: ca1450a1-0113-4f96-afbb-d6ca9d27e226
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - fsmib
+id: mainpagecontent
+theme: fsmib
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: visible
+visibility: {  }

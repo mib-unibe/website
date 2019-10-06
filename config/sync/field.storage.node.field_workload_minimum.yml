@@ -1,0 +1,20 @@
+uuid: 14ce2f2f-988b-454a-b51c-02be0f515480
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_workload_minimum
+field_name: field_workload_minimum
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

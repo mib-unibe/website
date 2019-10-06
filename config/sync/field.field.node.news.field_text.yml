@@ -1,0 +1,29 @@
+uuid: e5b9fdd1-7c00-4ee9-836f-dab1dfab333c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text
+    - node.type.news
+  module:
+    - entity_reference_revisions
+id: node.news.field_text
+field_name: field_text
+entity_type: node
+bundle: news
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles: null
+    target_bundles_drag_drop:
+      text:
+        weight: 2
+        enabled: false
+field_type: entity_reference_revisions

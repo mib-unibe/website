@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_preprocess().
+ */
+function fsmib_preprocess(array &$variables, $hook)
+{
+}
+
+function fsmib_suggestions_views_view_alter(array &$suggestions, $variables)
+{
+}
+
+function fsmib_preprocess_html(&$variables)
+{
+}
+
+function fsmib_preprocess_node(&$variables)
+{
+}

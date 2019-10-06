@@ -1,0 +1,8 @@
+uuid: fb47e6a2-9ddc-4f34-8f6a-4bead1a54601
+langcode: en
+status: true
+dependencies: {  }
+name: Kontaktperson
+vid: kontaktperson
+description: ''
+weight: 0

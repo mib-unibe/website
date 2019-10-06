@@ -1,0 +1,19 @@
+uuid: 2b87da77-0c62-4494-8cfc-8380ba52f999
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_e_mail
+    - taxonomy.vocabulary.kontaktperson
+id: taxonomy_term.kontaktperson.field_e_mail
+field_name: field_e_mail
+entity_type: taxonomy_term
+bundle: kontaktperson
+label: E-Mail
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,24 @@
+uuid: 919cf762-0b9b-4e7c-9bcc-8e012d00e61f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mib_upcoming_events
+  module:
+    - views
+  theme:
+    - fsmib
+id: views_block__mib_upcoming_events_block_1
+theme: fsmib
+region: sidebar_first
+weight: -2
+provider: null
+plugin: 'views_block:mib_upcoming_events-block_1'
+settings:
+  id: 'views_block:mib_upcoming_events-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

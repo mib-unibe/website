@@ -1,0 +1,8 @@
+uuid: 285edd9f-e442-4ddb-b019-7e5c50762137
+langcode: en
+status: true
+dependencies: {  }
+name: Jobtyp
+vid: jobtyp
+description: ''
+weight: 0

@@ -1,0 +1,62 @@
+uuid: 14138f39-7e37-43f3-a347-306b421567e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_attachment
+    - field.field.node.event.field_date_end
+    - field.field.node.event.field_date_start
+    - field.field.node.event.field_description
+    - field.field.node.event.field_image
+    - field.field.node.event.field_links
+    - field.field.node.event.field_location
+    - field.field.node.event.field_person_helper
+    - field.field.node.event.field_person_responsible
+    - field.field.node.event.field_registration
+    - image.style.main
+    - node.type.event
+  module:
+    - entity_reference_revisions
+    - file
+    - image
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_attachment:
+    weight: 1
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_description:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: main
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_date_end: true
+  field_date_start: true
+  field_links: true
+  field_location: true
+  field_person_helper: true
+  field_person_responsible: true
+  field_registration: true
+  links: true

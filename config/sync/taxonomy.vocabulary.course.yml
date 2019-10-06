@@ -1,0 +1,8 @@
+uuid: f76e88b6-b7da-4a31-a6b7-3ecc232b107a
+langcode: en
+status: true
+dependencies: {  }
+name: Fach
+vid: course
+description: ''
+weight: 0

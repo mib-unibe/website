@@ -1,0 +1,20 @@
+uuid: 33959378-5124-47fb-81a7-b44d9ba55fdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_discipline
+  module:
+    - user
+id: user.user.field_discipline
+field_name: field_discipline
+entity_type: user
+bundle: user
+label: Studienfach
+description: 'Deine Stufe des Studiums (Bachelor/Master/PhD) und das Studiumsfach.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

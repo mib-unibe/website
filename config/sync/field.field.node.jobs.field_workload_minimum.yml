@@ -1,0 +1,23 @@
+uuid: cb8b36d1-e688-4b2e-90fa-41c311d718eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_workload_minimum
+    - node.type.jobs
+id: node.jobs.field_workload_minimum
+field_name: field_workload_minimum
+entity_type: node
+bundle: jobs
+label: 'Pensum: Minimum'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: '%'
+field_type: integer

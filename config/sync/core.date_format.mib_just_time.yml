@@ -1,0 +1,8 @@
+uuid: 5879b140-9a8b-4b87-b285-fe76ebc74914
+langcode: en
+status: true
+dependencies: {  }
+id: mib_just_time
+label: 'MIB: Just time'
+locked: false
+pattern: 'H:i'

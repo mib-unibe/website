@@ -1,0 +1,29 @@
+uuid: 2193a6e4-ec38-4b09-b597-c5d3d207be82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_professor
+    - node.type.exam
+    - taxonomy.vocabulary.professor
+id: node.exam.field_professor
+field_name: field_professor
+entity_type: node
+bundle: exam
+label: Dozent
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      professor: professor
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

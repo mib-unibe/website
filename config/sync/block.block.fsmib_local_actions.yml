@@ -1,0 +1,20 @@
+uuid: 47ba7b88-abb1-4088-9c1e-ea2d12080c21
+langcode: en
+status: true
+dependencies:
+  theme:
+    - fsmib
+_core:
+  default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
+id: fsmib_local_actions
+theme: fsmib
+region: content
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
